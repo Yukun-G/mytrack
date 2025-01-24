@@ -1,0 +1,13 @@
+<header th:fragment="header">
+    <div class="left-buttons">
+        <a th:href="@{/home}"><button>主页</button></a>
+        <button>我的工作台</button>
+        <a th:href="@{/projects}"><button>项目</button></a>
+        <button>管理</button>
+    </div>
+    <div class="right-buttons">
+        <div class="username" th:text="'登录为：' + ${session.username}">xxxxxx</div>
+        <a th:href="@{/myaccount}"><button>我的账号</button></a>
+        <a th:href="@{/logout}"><button>退出</button></a>
+    </div>
+</header>

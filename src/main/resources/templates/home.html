@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+
+<body>
+<div th:replace="fragments/header :: header"></div>
+<!-- 页面主体内容可以在这里添加 -->
+<div class="username" th:text="'欢迎您：' + ${session.username}">欢迎您：</div>
+<h1>欢迎来到主页</h1>
+</body>
+
+</html>

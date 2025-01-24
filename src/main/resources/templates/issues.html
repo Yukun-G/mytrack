@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>问题</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <style>
+        /* 为表单和表格添加一些基本的样式，可根据需要调整 */
+        form {
+            margin-bottom: 20px;
+        }
+        input, select {
+            margin-right: 10px;
+            padding: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main">
+        <h2 th:text="'问题列表 #' + ${session.project.name}">问题列表</h2>
+
+        <!--    <div class="query-area">-->
+        <form id="issueSearchForm">
+            <label for="status">状态:</label>
+            <select id="status">
+                <option value="1">打开</option>
+                <option value="0">关闭</option>
+            </select>
+            <label for="title">主题:</label>
+            <input type="text" id="title" placeholder="输入主题">
+            <label for="createdBy">创建人:</label>
+            <input type="text" id="createdBy" placeholder="输入创建人">
+            <label for="assignedTo">指派给:</label>
+            <input type="text" id="assignedTo" placeholder="输入指派人">
+            <button type="button" id="searchButton">查询</button>
+            <button type="button" id="resetButton">重置</button>
+        </form>
+        <!--    </div>-->
+
+        <div class="operation-area">
+            <button type="button" id="addButton">新增</button>
+            <button type="button" id="deleteButton">删除</button>
+        </div>
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>状态</th>
+                <th>主题</th>
+                <th>描述</th>
+                <th>创建人</th>
+                <th>指派给</th>
+                <th>创建时间</th>
+                <th>更新时间</th>
+            </tr>
+            </thead>
+            <tbody id="issuesTableBody" th:fragment="issuesTableBody">
+            <tr th:each="issue, rowStat : ${issues}">
+                <td><a th:href="@{/issue/{id}(id=${issue.id})}" th:text="${issue.id}">ID</a></td>
+                <td th:text="${issue.status}">状态</td>
+                <td><a th:href="@{/issue/{id}(id=${issue.id})}" th:text="${issue.title}">主题</a></td>
+                <td th:text="${issue.description}">描述</td>
+                <td th:text="${issue.created_by}">创建人</td>
+                <td th:text="${issue.assigned_to}">指派给</td>
+                <td th:text="${issue.created_at}">创建时间</td>
+                <td th:text="${issue.updated_at}">更新时间</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="detail" style="display: none">
+        <h2 th:text="'问题 #' + ${session.issue.id}">问题详情</h2>
+
+    </div>
+
+    <script>
+
+    </script>
+
+</body>
+</html>

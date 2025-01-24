@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的账号</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+
+<body>
+<div th:replace="fragments/header :: header"></div>
+<div class="top-right-link">
+    <a th:href="@{/changePassword}">修改密码</a>
+</div>
+<div th:if="${message}" class="message" th:text="${message}"></div>
+<div th:if="${error}" class="error" th:text="${error}"></div>
+<div class="form-container">
+    <form action="#" th:action="@{/updateAccount}" method="post">
+        <label for="nickname">昵称:</label>
+        <input type="text" id="nickname" name="nickname" th:value="${userInfo['nickname']}" required>
+        <label for="email">邮箱:</label>
+        <input type="email" id="email" name="email" th:value="${userInfo['email']}" required>
+        <button type="submit">保存</button>
+        <button type="button">取消</button>
+    </form>
+</div>
+</body>
+
+</html>

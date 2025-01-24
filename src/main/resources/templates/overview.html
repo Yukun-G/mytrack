@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>概述</title>
+</head>
+<body>
+<h2 th:text="${session.project.name}">项目名称</h2>
+<p th:text="${session.project.description}">项目描述</p>
+<p>创建日期：<span th:text="${session.project.created_at}">创建日期</span></p>
+<!-- 这里可以添加更多项目详情内容，例如项目负责人、项目成员等 -->
+</body>
+</html>

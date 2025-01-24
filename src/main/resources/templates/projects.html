@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目页面</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<div class="query-area">
+    <form action="#" th:action="@{/projects}" method="get">
+        <label for="projectName">项目名称:</label>
+        <input type="text" id="projectName" name="projectName">
+        <label for="projectDescription">项目描述:</label>
+        <input type="text" id="projectDescription" name="projectDescription">
+        <label for="projectStatus">状态:</label>
+        <select id="projectStatus" name="projectStatus">
+            <option value="1">开启</option>
+            <option value="0">关闭</option>
+        </select>
+        <button type="submit">查询</button>
+    </form>
+</div>
+<div class="table-container">
+    <table>
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>项目名称</th>
+            <th>项目描述</th>
+            <th>创建日期</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="project, rowStat : ${projects}">
+            <td th:text="${rowStat.count}">1</td>
+            <td><a th:href="@{/project/{name}(name=${project.name})}" th:text="${project.name}">项目名称</a></td>
+            <td th:text="${project.description}">项目描述</td>
+            <td th:text="${project.created_at}">创建日期</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

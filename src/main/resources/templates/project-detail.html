@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目详情</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+        }
+    </style>
+    <script src="/js/issues.js"></script>
+    <script src="/js/project.js"></script>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<div class="main-area">
+    <div class="menu">
+        <ul>
+            <li class="selected" onclick="selectMenuItem(this, 'overview')">概述</li>
+            <li onclick="selectMenuItem(this, 'activity')">活动</li>
+            <li onclick="selectMenuItem(this, 'issues')">问题</li>
+            <li onclick="selectMenuItem(this, 'resource')">资料</li>
+            <li onclick="selectMenuItem(this, 'configuration')">配置</li>
+        </ul>
+    </div>
+    <div class="content" id="content-area">
+        <!-- 初始内容将通过 AJAX 加载 -->
+    </div>
+</div>
+
+<script>
+
+
+    // 在页面加载时，调用 selectMenuItem 函数显示概述内容
+    window.onload = function() {
+        var overviewMenuItem = document.querySelector('.menu ul li:first-child');
+        selectMenuItem(overviewMenuItem, 'overview');
+    };
+</script>
+</body>
+</html>

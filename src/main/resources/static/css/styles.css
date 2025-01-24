@@ -1,0 +1,146 @@
+/* 整体页面布局 */
+body, html {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+}
+
+/* 顶部菜单区域 */
+header {
+    height: 100px;
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* 左侧按钮组 */
+.left-buttons {
+    display: flex;
+}
+
+/* 右侧按钮组 */
+.right-buttons {
+    display: flex;
+}
+
+.operation-area {
+    margin: 0px 0px 10px 0px;
+}
+
+/* 按钮样式 */
+button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    /*margin: 0 10px;*/
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+.top-right-link {
+}
+
+.message {
+    color: green;
+    margin-bottom: 10px;
+}
+.error {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.query-area {
+    background-color: #f4f4f4;
+    margin: 10px;
+    border: 1px solid #ccc;
+    /*margin-bottom: 20px;*/
+}
+.query-area label {
+    display: inline-block;
+    /*margin-bottom: 5px;*/
+    margin: 10px;
+    width: 100px;
+}
+.query-area input,
+.query-area select {
+    width: 300px;
+    padding: 10px;
+    /*margin-bottom: 10px;*/
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+.query-area button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.query-area button:hover {
+    background-color: #555;
+}
+.table-container {
+    overflow-x: auto;
+    margin: 10px;
+}
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.table-container th,
+.table-container td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+.table-container th {
+    background-color: #f4f4f4;
+}
+
+.main-area{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+.menu {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    min-width: 200px;
+    height: 100%;
+}
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+.menu ul li {
+    margin-bottom: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+.menu ul li:hover {
+    background-color: #555;
+}
+.menu ul li.selected {
+    background-color: white;
+    color: #333;
+}
+.content {
+    padding: 20px;
+    flex-grow: 1;
+}
+.content h2 {
+    margin-top: 0;
+}
+.content p {
+    margin-bottom: 20px;
+}
